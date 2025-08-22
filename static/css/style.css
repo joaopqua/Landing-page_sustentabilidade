@@ -1,0 +1,825 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fefff5;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+}
+
+.aparece-scroll {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 30% cover 40%;
+}
+
+@keyframes appear{
+        from{
+          opacity: 0;
+          scale: 0;
+        }
+        to{
+          opacity: 1;
+          scale: 1;
+        }
+      }
+
+      #sobre {
+        animation: appear linear;
+        animation-timeline: view();
+        animation-range: entry 30% cover 40%;
+      }
+
+@keyframes fadeInBlur {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.scroll-fade-blur {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-fade-blur.show {
+  animation: fadeInBlur 1s ease-out forwards;
+}
+
+
+
+section {
+    padding-top: 120px;
+    min-height: 95vh;
+    background: url(/static/img/background-hero.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #1a1c0490;
+    backdrop-filter: blur(15px);
+    border-bottom: 2px solid #ffffee99;
+}
+
+nav {
+    max-width: 1920px;
+    height: 110px;
+    margin-inline: 320px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* para posicionar o menu mobile */
+}
+
+.nav-lista {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+    padding-left: 320px;
+}
+
+.nav-lista li {
+    position: relative;
+}
+
+.nav-lista a {
+    display: inline-block;
+    text-decoration: none;
+    color: #FFFFEE;
+    font-size: 20px;
+    position: relative;
+    font-weight: 600;
+}
+
+.nav-lista a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; 
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.nav-lista a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Ícone do menu, escondido no desktop */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: #FFFFEE;
+    cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    nav {
+        margin-inline: 20px;
+    }
+    .nav-lista {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        backdrop-filter: blur(25px);
+        background: #33333389; 
+        flex-direction: column;
+        align-items: center;
+        width: 100%;    
+        padding: 20px;
+        display: none; 
+        border-radius: 5px;
+    }
+
+    .nav-lista.active {
+        display: flex; /* Mostra o menu quando ativo */
+    }
+
+    .nav-lista li {
+        text-align: right;
+    }
+
+    .nav-lista a {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .menu-icon {
+        display: block; /* Mostra o ícone no mobile */
+    }
+
+    /* Remove o padding-left para centralizar os links no menu mobile */
+    .nav-lista {
+        padding-left: 0;
+    }
+}
+
+    
+.hero h1 {
+    margin-top: 180px;
+    font-size: 80px;
+    font-weight: 650;
+    line-height: 110%;
+    color: #FFFFEE;
+    margin-inline: 320px;
+    opacity: 0;
+    animation: fadeInBlur 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.hero p {
+    margin-top: 35px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #F6F6F6;
+    margin-inline: 320px;
+    line-height: 140%;
+    opacity: 0;
+    animation: fadeInBlur 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.btn-hero {
+  padding: 24px 24px;
+  border: 0;
+  width: 230px; 
+  border-radius: 100px;
+  background-color: #C4D400;
+  color: #000000;
+  font-weight: Bold;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  margin-inline: 320px;
+  margin-top: 35px;
+  font-size: 18px;
+  opacity: 0;
+  animation: fadeInBlur 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+#home {
+  position: relative;
+  z-index: 1;
+}
+
+.folha-decorativa1 {
+  position: absolute;
+  bottom: -140px;
+  right: 1550px;
+  width: 400px;
+  transform: scaleX(-1);
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0; /* começa invisível */
+  animation: fadeIn 3s ease forwards; /* duração 2 segundos */
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+  to {
+    opacity: 1; /* fica visível */
+  }
+}
+
+.folha-decorativa2 {
+  position: absolute;
+  bottom: -1040px;         /* ainda na borda da seção */
+  right: -50px;           /* agora no lado direito */
+  width: 400px;          /* aumente conforme quiser (ex: 300px ou mais) */
+  transform: scaleX(1); /* espelha a imagem horizontalmente */
+  z-index: 2;
+  pointer-events: none;
+}
+
+.folha-decorativa3 {
+  position: absolute;
+  bottom: -2030px;         /* ainda na borda da seção */
+  right: 600px;           /* agora no lado direito */
+  width: 400px;          /* aumente conforme quiser (ex: 300px ou mais) */
+  transform: scaleX(1); /* espelha a imagem horizontalmente */
+  z-index: 2;
+  pointer-events: none;
+}
+
+.btn-hero:hover {
+  background-color: #f3fd88;
+  box-shadow: 0 0 20px #6fc5ff50;       
+  transform: scale(1.1);
+}
+
+.btn-hero:active {
+  background-color: #d4d7af;
+  transition: all 0.25s;
+  -webkit-transition: all 0.25s;
+  box-shadow: none;
+  transform: scale(0.98);
+}
+
+#sobre {
+    padding-top: 100px;
+    padding-bottom: 80px;
+    min-height: 95vh;
+    background-color: #fefff5;
+}
+
+.sobre-container {
+    display: flex;
+    align-items: flex-start; 
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.sobre-esquerda {
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column; /* título em cima, imagem embaixo */
+    align-items: flex-start; /* alinhados à esquerda */
+    gap: 15px;
+    padding-left: 310px;
+    opacity: 0;
+    animation: fadeInBlur 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.sobre-esquerda h2 {
+    font-size: 55px;
+    color: #3c4800;
+}
+
+.sobre-esquerda img {
+    width: 472px;
+    height: 570px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.sobre-direita {
+    flex: 1;
+    text-align: justify;
+    line-height: 170%;
+    padding-right: 320px;
+    max-width: 900px;
+}
+
+.sobre-direita p {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #444A00;
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeInBlur 1s ease-out forwards;
+    animation-delay: 0.7s;
+}
+
+
+#dicas {
+  background: #3D4200;
+  color: #fff;
+  text-align: center;
+  padding-left: 320px;
+  padding-right: 320px;
+  min-height: 90vh;
+  overflow: visible; /* garante que nada seja cortado */
+  background: url('/static/img/Group\ 1\ \(1\).jpg');
+
+}
+
+.carrossel-externo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 500px;
+  width: 1275px;
+}
+
+.carrossel-viewport {
+  overflow: hidden;
+  flex: 1;
+  height: 100%;
+  position: relative;
+}
+
+.carrossel {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  padding: 8px 8px; /* espaço vertical extra para o hover */
+  height: auto; /* para não limitar o hover */
+  transition: transform 0.3s ease;
+  box-sizing: content-box; /* Faz o padding não quebrar o layout */
+  width: 1290px;
+  height: 470px;
+}
+
+.card {
+  width: 405px;
+  height: 450px;
+  background: #fff;
+  color: #3c4800;
+  border-radius: 30px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  will-change: transform;
+  z-index: 1;
+  margin: 0;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  z-index: 2; /* sobe acima dos vizinhos */
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 30px 30px 0 0;
+}
+
+.card h3 {
+  margin-top: 10px;
+  font-size: 22px;
+  margin-bottom: 0px;
+}
+
+.prev, .next {
+  position: absolute;
+  top:205px;
+  background: #C4D400;
+  color: #000000b3;
+  border: none;
+  font-size: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  z-index: 10;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev {
+  left: -60px;
+}
+
+.next {
+  right: -60px;
+}
+
+.prev:hover, .next:hover {
+  transform: scale(1.09);
+  background: rgba(225, 246, 196, 0.9);
+  cursor: pointer; /* reforça o cursor na hover */
+}
+
+
+#dicas h2 {
+    font-size: 55px;
+    margin-bottom: 40px;
+}
+
+#dicas h3 {
+    font-size: 28px;
+    text-align: left;
+    padding-left: 28px;
+    padding-bottom: 10px;
+}
+
+#dicas p {
+    font-size: 16px;
+    line-height: 150%;
+    text-align: left;
+    padding-left: 28px;
+    padding-right: 28px;
+    font-weight: 600;
+    color: #272b009f;
+}
+
+.modal {
+    display: flex;
+    width: 550px;
+    height: 530px;
+    background: #C4D400;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffffe3;
+    border-radius: 28px;
+    margin-top: 50px;
+    padding-top: 0px;
+    margin-top: -250px;
+    padding-bottom: 0px;
+    text-align: center;
+    margin-left: auto;   
+    margin-right: 320px; 
+    box-shadow: 0 0 20px rgba(3, 48, 20, 0.138);
+}
+
+.modal-conteudo {
+    align-items: center;
+}
+
+.modal-conteudo h3 {
+    padding-bottom: 40px;
+    font-size: 28px;
+}
+
+.modal .input-box { 
+    padding-bottom: 20px;
+}
+
+.modal input {
+    height: 45px;
+    width: 450px;
+    border: none;
+    border-radius: 8px;
+    padding-left: 12px;
+    font-size: 16px;
+    color: #3c4800;
+}
+
+.modal .btn-form {
+    margin-top: 15px;
+    background: #3D4200;
+    width: 450px;
+    color: #FFFF;
+    font-size: 18px;
+    font-weight: 600;
+    height: 55px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+
+}
+
+.modal .btn-form:hover{
+    background-color: #5d6502;
+    transform: scale(1.03)
+}
+
+#formulario {
+    background: url(/static/img/Frame\ 8.jpg);
+}
+
+.modal-texto h2 {
+    font-size: 55px;
+    margin-bottom: 25px;
+    line-height: 110%;
+}
+
+.modal-texto p {
+    font-size: 20px;
+    line-height: 150%;
+}
+
+.modal-texto {
+    padding-left: 320px;
+}
+
+.footer {
+  background-color: #3A3E01;
+  color: #fff;
+  padding: 60px 0; /* top/bottom apenas, lateral fica com container */
+  font-family: 'Raleway', sans-serif;
+}
+
+.footer-container {
+  padding-inline: 320px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-col {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.footer-logo {
+  width: 160px;
+  margin-bottom: 20px;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-col ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #C4D400;
+}
+
+.footer-social a {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.footer-social img {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-map {
+  width: 100%;
+  max-width: 200px;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+
+@media (max-width: 1024px) {
+  .folha-decorativa1,
+  .folha-decorativa2,
+  .folha-decorativa3 {
+    display: none;
+  }
+}
+
+
+
+/* ======================== */
+/* Estilos responsivos móveis */
+/* ======================== */
+@media (max-width: 768px) {
+
+  /* Remove margens grandes do nav, hero, sections */
+  nav {
+    margin-inline: 20px;
+    height: 80px;
+  }
+
+  .nav-lista {
+    padding-left: 0;
+    gap: 20px;
+    font-size: 16px;
+  }
+
+  .hero h1 {
+    margin-inline: 20px;
+    font-size: 36px;
+    margin-top: 120px;
+    text-align: center;
+  }
+
+  .hero p {
+    margin-inline: 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 150%;
+  }
+
+  .btn-hero {
+    margin-inline: 20px;
+    width: calc(100% - 40px);
+    font-size: 16px;
+    padding: 16px 0;
+    margin-top: 25px;
+  }
+
+  /* Sobre */
+  .sobre-container {
+    flex-direction: column;
+    display: flex;
+    padding: 0 20px;
+    gap: 25px;
+
+  }
+
+  .sobre-esquerda {
+    align-items: center;
+
+  }
+
+  .sobre-esquerda h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .sobre-esquerda img {
+    width: 190%;
+    height: auto;
+    border-radius: 15px;
+  }
+
+  .sobre-direita {
+    padding-right: 0;
+    max-width: 100%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Dicas */
+  #dicas {
+    padding: 40px 20px;
+    background-position: center;
+  }
+
+  .carrossel-externo {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carrossel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    gap: 15px;
+    padding: 20px 0;
+}
+
+  .card {
+    width: 280px;
+    height: 400px;
+  }
+
+  .prev, .next {
+    display: none; /* Remove setas para não atrapalhar no mobile */
+  }
+
+  #dicas h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+  }
+
+  #dicas h3 {
+    font-size: 18px;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  #dicas p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* Formulário */
+  .modal {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    padding: 30px 20px;
+    height: auto;
+    border-radius: 20px;
+  }
+
+  .modal-texto {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+  }
+
+  .modal-texto h2 {
+    padding-bottom: 20px;
+    font-size: 55px;
+
+  }
+
+  .modal-texto p {
+    font-size: 18px;
+  }
+
+  .modal-conteudo h3 {
+    font-size: 20px;
+    padding-bottom: 20px;
+  }
+
+  .modal input {
+    width: 350px;
+    max-width: 100%;
+    font-size: 14px;
+    height: 40px;
+  }
+
+  .modal .btn-form {
+    width: 100%;
+    font-size: 16px;
+    height: 45px;
+    margin-top: 15px;
+  }
+
+  /* Footer */
+  .footer-container {
+    padding-inline: 20px;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-logo {
+    margin-bottom: 10px;
+  }
+
+  .footer-col {
+    min-width: 100%;
+  }
+
+  /* Esconder folhas decorativas em telas menores */
+  .folha-decorativa1,
+  .folha-decorativa2,
+  .folha-decorativa3 {
+    display: none;
+  }
+
+  /* Ajustar sections para altura automática */
+  section {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+}
