@@ -144,44 +144,66 @@ nav {
 @media (max-width: 900px) {
     nav {
         margin-inline: 20px;
+        padding: 0 20px;
+        background: transparent; 
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    /* Overlay escuro atrás do menu quando ativo */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        display: none;
+        z-index: 9998;
+        transition: opacity 0.3s ease;
+    }
+
+    .overlay.active {
+        display: block;
     }
     .nav-lista {
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 80px; /* abaixo do header */
         left: 0;
-        backdrop-filter: blur(25px);
-        background: #33333389; 
+        width: 100%;
         flex-direction: column;
         align-items: center;
-        width: 100%;    
-        padding: 20px;
-        display: none; 
-        border-radius: 5px;
+        gap: 20px;
+        padding: 25px;
+        background: #1a1c048b; 
+        backdrop-filter: blur(20px);
+        display: none;
+        z-index: 9999;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     .nav-lista.active {
-        display: flex; /* Mostra o menu quando ativo */
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .nav-lista li {
-        text-align: right;
+        text-align: center;
     }
 
-    .nav-lista a {
-        text-align: center;
+    .nav-lista li a {
         font-size: 18px;
     }
 
+    /* Ícone do menu mobile visível */
     .menu-icon {
-        display: block; /* Mostra o ícone no mobile */
-    }
-
-    /* Remove o padding-left para centralizar os links no menu mobile */
-    .nav-lista {
-        padding-left: 0;
+        display: block;
+        z-index: 10000;
     }
 }
-
     
 .hero h1 {
     margin-top: 180px;
@@ -559,7 +581,7 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 40px;
+  gap: 200px;
 }
 
 .footer-col {
@@ -604,6 +626,8 @@ nav {
 }
 
 .footer-social img {
+  margin-top: 10px;
+  margin-left: 20px;
   width: 30px;
   height: 30px;
 }
@@ -775,22 +799,22 @@ nav {
     font-size: 18px;
   }
 
-  .modal-conteudo h3 {
-    font-size: 20px;
+.modal-conteudo h3 {
+    font-size: 22px;
     padding-bottom: 20px;
   }
 
   .modal input {
     width: 350px;
     max-width: 100%;
-    font-size: 14px;
-    height: 40px;
+    font-size: 16px;
+    height: 55px;
   }
 
   .modal .btn-form {
     width: 100%;
     font-size: 16px;
-    height: 45px;
+    height: 55px;
     margin-top: 15px;
   }
 
