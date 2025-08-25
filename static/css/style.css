@@ -80,9 +80,9 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: #1a1c0490;
+    background: #5151519e;
     backdrop-filter: blur(15px);
-    border-bottom: 2px solid #ffffee99;
+    border-bottom: 2px solid #ffffff71;
 }
 
 nav {
@@ -175,7 +175,7 @@ nav {
         align-items: center;
         gap: 20px;
         padding: 25px;
-        background: #1a1c048b; 
+        background: #4545458b; 
         backdrop-filter: blur(20px);
         display: none;
         z-index: 9999;
@@ -515,7 +515,7 @@ nav {
 
 .modal-conteudo h3 {
     padding-bottom: 40px;
-    font-size: 28px;
+    font-size: 34px;
 }
 
 .modal .input-box { 
@@ -640,6 +640,15 @@ nav {
 }
 
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #C4D400;
+}
+
+
 @media (max-width: 1024px) {
   .folha-decorativa1,
   .folha-decorativa2,
@@ -650,12 +659,10 @@ nav {
 
 
 
-/* ======================== */
+
 /* Estilos responsivos móveis */
-/* ======================== */
 @media (max-width: 768px) {
 
-  /* Remove margens grandes do nav, hero, sections */
   nav {
     margin-inline: 20px;
     height: 80px;
@@ -668,14 +675,14 @@ nav {
   }
 
   .hero h1 {
-    margin-inline: 20px;
+    margin-inline: 30px;
     font-size: 36px;
     margin-top: 120px;
     text-align: center;
   }
 
   .hero p {
-    margin-inline: 20px;
+    margin-inline: 30px;
     font-size: 16px;
     margin-top: 20px;
     text-align: center;
@@ -694,26 +701,30 @@ nav {
   .sobre-container {
     flex-direction: column;
     display: flex;
-    padding: 0 20px;
+    padding: 0 30px;
     gap: 25px;
 
   }
 
-  .sobre-esquerda {
-    align-items: center;
-
-  }
+.sobre-esquerda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
   .sobre-esquerda h2 {
     font-size: 28px;
     text-align: center;
   }
 
-  .sobre-esquerda img {
-    width: 190%;
-    height: auto;
-    border-radius: 15px;
-  }
+.sobre-esquerda img {
+  width: 100%;
+  max-width: 300px; /* Ajuste conforme o tamanho desejado */
+  height: auto;
+  border-radius: 15px;
+}
+
 
   .sobre-direita {
     padding-right: 0;
@@ -752,7 +763,7 @@ nav {
   }
 
   .prev, .next {
-    display: none; /* Remove setas para não atrapalhar no mobile */
+    display: none; 
   }
 
   #dicas h2 {
@@ -775,12 +786,12 @@ nav {
   /* Formulário */
   .modal {
     width: 400px;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 40px;
     padding: 30px 20px;
     height: auto;
     border-radius: 20px;
+    justify-content: center;
+    align-self: center;
   }
 
   .modal-texto {
@@ -820,9 +831,9 @@ nav {
 
   /* Footer */
   .footer-container {
-    padding-inline: 20px;
+    padding-inline: 10px;
     flex-direction: column;
-    gap: 30px;
+    gap: -0px;
   }
 
   .footer-logo {
